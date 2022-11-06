@@ -22,6 +22,7 @@ public class Main extends Application {
 		panel.getChildren();
 
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage.setTitle("Ejercicio 2");
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	} catch (Exception e) {
