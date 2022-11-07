@@ -1,16 +1,30 @@
 package application;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+
+			BorderPane panelungo = new BorderPane();
+			Label lbl_numeros= new Label("");
+			lbl_numeros.setAlignment(Pos.TOP_CENTER);
+			BorderPane aux=new BorderPane();
+			
 			GridPane panel = new GridPane();
+
+			panel.setAlignment(Pos.CENTER);
 
 			Button cero = new Button("0");
 			Button uno = new Button("1");
@@ -20,7 +34,25 @@ public class Main extends Application {
 			Button cinco = new Button("5");
 			Button seis = new Button("6");
 			Button siete = new Button("7");
+			siete.setOnAction(new EventHandler<ActionEvent>() {
+				
+				@Override
+				public void handle(ActionEvent arg0) {
+					String numero=lbl_numeros.getText()+"7";
+					lbl_numeros.setText(numero);
+					
+				}
+			});
 			Button ocho = new Button("8");
+			ocho.setOnAction(new EventHandler<ActionEvent>() {
+				
+				@Override
+				public void handle(ActionEvent arg0) {
+					String numero=lbl_numeros.getText()+"8";
+					lbl_numeros.setText(numero);
+					
+				}
+			});
 			Button nueve = new Button("9");
 			Button llamar = new Button("Llamar");
 			Button colgar = new Button("Colgar");
@@ -38,7 +70,11 @@ public class Main extends Application {
 			panel.add(tres, 3, 3);
 			panel.add(cero, 2, 4);
 
-			Scene scene = new Scene(panel, 300, 200);
+			panelungo.setTop(lbl_numeros);
+			panelungo.setCenter(panel);
+
+
+			Scene scene = new Scene(panelungo, 300, 200);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Ejercicio 3");
