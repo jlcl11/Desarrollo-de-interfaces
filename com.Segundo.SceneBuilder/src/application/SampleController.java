@@ -49,7 +49,7 @@ public class SampleController {
 		columTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
 		columEditorial.setCellValueFactory(new PropertyValueFactory<>("editorial"));
 		columAutor.setCellValueFactory(new PropertyValueFactory<>("autor"));
-		//columnPaginas.setCellValueFactory(new PropertyValueFactory<>("nPaginas"));
+		columnPaginas.setCellValueFactory(new PropertyValueFactory<>("nPaginas"));
 		tableLibros.setItems(listaLibros);
 	}
 }
