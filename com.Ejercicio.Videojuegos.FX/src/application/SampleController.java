@@ -60,7 +60,7 @@ public class SampleController {
 		columTitulo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 		columPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
 		columConsola.setCellValueFactory(new PropertyValueFactory<>("consola"));
-		//columPegi.setCellValueFactory(new PropertyValueFactory<>("pegi"));
+		columPegi.setCellValueFactory(new PropertyValueFactory<>("pegi"));
 
 		tableVideojuegos.setItems(listaJuegos);
 	}
