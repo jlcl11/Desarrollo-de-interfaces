@@ -5,6 +5,7 @@ import java.util.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -63,6 +64,17 @@ public class SampleController {
 		columPegi.setCellValueFactory(new PropertyValueFactory<>("pegi"));
 
 		tableVideojuegos.setItems(listaJuegos);
+	}
+
+	@FXML
+	private Button btnAnadir;
+
+	@FXML
+	private void anadirJuego() {
+
+		PojoVideojuego j = new PojoVideojuego(txtNombre.getText(), Float.parseFloat(txtPrecio.getText()),
+				cbConsola.getValue().toString(), (Integer) cbPegi.getValue());
+		listaJuegos.add(j);
 	}
 
 }
