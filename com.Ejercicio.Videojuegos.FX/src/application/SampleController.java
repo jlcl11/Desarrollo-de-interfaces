@@ -1,10 +1,10 @@
 package application;
 
-import java.util.Observable;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
@@ -72,9 +72,57 @@ public class SampleController {
 	@FXML
 	private void anadirJuego() {
 
-		PojoVideojuego j = new PojoVideojuego(txtNombre.getText(), Float.parseFloat(txtPrecio.getText()),
-				cbConsola.getValue().toString(), (Integer) cbPegi.getValue());
-		listaJuegos.add(j);
+		if (txtNombre.getText().isEmpty() || txtPrecio.getText().isEmpty() || cbConsola.getSelectionModel().isEmpty()
+				|| cbPegi.getSelectionModel().isEmpty()) {
+			Alert alerta = new Alert(AlertType.WARNING);
+			alerta.setTitle("Error al insertar");
+			alerta.setHeaderText("No se ha introducido el juego");
+			alerta.setContentText("Hay algún campo vacío");
+			alerta.showAndWait();
+		} else {
+			if (esNumero(txtPrecio.getText())) {
+				PojoVideojuego j = new PojoVideojuego(txtNombre.getText(), Float.parseFloat(txtPrecio.getText()),
+						cbConsola.getValue().toString(), (Integer) cbPegi.getValue());
+				listaJuegos.add(j);
+
+				txtNombre.clear();
+				txtPrecio.clear();
+				cbConsola.getSelectionModel().clearSelection();
+				cbPegi.getSelectionModel().clearSelection();
+
+			} else {
+				Alert alerta = new Alert(AlertType.ERROR);
+				alerta.setTitle("Error al insertar");
+				alerta.setHeaderText("No se ha introducido el precio");
+				alerta.setContentText("Por favor introduzca el precio en numero");
+				alerta.showAndWait();
+			}
+		}
+
+	}
+
+	public boolean esNumero(String s) {
+		try {
+			Integer.parseInt(s);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
+		}
+	}
+
+	@FXML
+	private Button btnBorrar;
+
+	@FXML
+	private void borrarJuego() {
+		int indiceSeleccionado = tableVideojuegos.getSelectionModel().getSelectedIndex();
+		System.out.println(indiceSeleccionado);
+		if(indiceSeleccionado>=1) {
+			tableVideojuegos.getItems().remove(indiceSeleccionado);
+		}else {
+			
+		}
+		
 	}
 
 }
