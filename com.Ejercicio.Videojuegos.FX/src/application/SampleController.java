@@ -117,12 +117,18 @@ public class SampleController {
 	private void borrarJuego() {
 		int indiceSeleccionado = tableVideojuegos.getSelectionModel().getSelectedIndex();
 		System.out.println(indiceSeleccionado);
-		if(indiceSeleccionado>=1) {
+		if (indiceSeleccionado <= -1) {
+			Alert alerta = new Alert(AlertType.ERROR);
+			alerta.setTitle("Seleccion errónea");
+			alerta.setHeaderText("No has seleccionado un juego");
+			alerta.setContentText("Selecciona un juego a borrar");
+			alerta.showAndWait();
+		} else {
 			tableVideojuegos.getItems().remove(indiceSeleccionado);
-		}else {
-			
+			tableVideojuegos.getSelectionModel().clearSelection();
+
 		}
-		
+
 	}
 
 }
