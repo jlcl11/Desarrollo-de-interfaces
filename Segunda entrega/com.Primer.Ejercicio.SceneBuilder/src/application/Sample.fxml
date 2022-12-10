@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="application.SampleController">
+   <center>
+      <VBox alignment="CENTER" prefHeight="485.0" prefWidth="333.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="112.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../18301-c76e0ee0af92438fa5332e0660484d4a.jpg" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label alignment="CENTER" text="Inicia sesión">
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets top="15.0" />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="15.0" />
+               </padding>
+            </Label>
+            <Label text="Nombre" />
+            <TextField id="campoNombre" fx:id="nombre" alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="273.0">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Constraseña">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Label>
+            <PasswordField id="contrasenha" fx:id="contrasenha" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="273.0">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </PasswordField>
+            <Button id="botonEntrar" fx:id="botonEntrar" mnemonicParsing="false" onAction="#mostrarMensaje" text="Entrar">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Button>
+            <Label fx:id="labelMensaje">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
