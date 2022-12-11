@@ -13,7 +13,7 @@ public class PojoVideojuego {
 
 	public PojoVideojuego(String nombre, float precio, String consola, Integer pegi) {
 		super();
-		this.nombre = new SimpleStringProperty(nombre);
+		this.nombre =new SimpleStringProperty(nombre); 
 		this.precio = new SimpleFloatProperty(precio);
 		this.consola = new SimpleStringProperty(consola);
 		this.pegi = new SimpleIntegerProperty(pegi);

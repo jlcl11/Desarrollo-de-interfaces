@@ -1,0 +1,65 @@
+.label {
+    -fx-text-fill: black;
+    -fx-opacity: 1.0;
+    -fx-alignment: center;
+       -fx-text-fill: white;
+       
+}
+.menu-bar {
+     -fx-background-color: derive(#1d1d1d,20.0%);
+}
+
+.context-menu {
+    -fx-background-color: derive(#1d1d1d,50.0%);
+}
+
+.menu-bar .label {
+    -fx-font-size: 14.0pt;
+    -fx-text-fill: white;
+    -fx-opacity: 0.9;
+}
+.menu-bar .label:hover {
+       -fx-font-size: 17.0pt;
+}
+#panel{
+	-fx-background-color: #81240F
+}
+.button {
+    -fx-padding: 5.0 22.0 5.0 22.0;   
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2.0;
+    -fx-background-radius: 0.0;
+    -fx-background-color: #1d1d1d;
+    -fx-font-size: 11.0pt;
+    -fx-text-fill: #d8d8d8;
+    -fx-background-insets: 0.0 0.0 0.0 0.0, 0.0, 1.0, 2.0;
+}
+
+.button:hover {
+    -fx-background-color: #3a3a3a;
+}
+.text-field {
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+}
+.choice-box{
+	    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+}
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: white;
+}
+#btnAnadir:pressed{
+	-fx-text-fill: #11A405;
+}
+#btnBorrar:pressed{
+	-fx-text-fill: #FF0303;
+}
+
+#tablaOeste{
+	-fx-base: #81240F;
+}
+#tablaEste{
+	-fx-base: #2D7EC2;
+}
+
