@@ -88,31 +88,42 @@ public class SampleController extends ObjetoDao {
 			connection = openConnection();
 			String query = "INSERT INTO equipos(nombre,ciudadlocal,generalManager,propietario,conferencia) values(?,?,?,?,?)";
 
-			Boolean conf = false;
+			Boolean conf = true;
 
-			if (cbConf.getSelectionModel().toString().equals("Este")) {
+			if (cbConf.getValue().toString() == "Oeste") {
+				System.out.println("Entra en oeste");
 				conf = false;
 			} else {
 				conf = true;
+				System.out.println("Entra en este");
 			}
 
 			try {
 				PreparedStatement ps = connection.prepareStatement(query);
 
 				ps.setString(1, txtNombre.getText());
-				ps.setString(2, cbCiudad.getSelectionModel().toString());
+				ps.setString(2, cbCiudad.getValue().toString());
 				ps.setString(3, txtGM.getText());
 				ps.setString(4, txtPropietario.getText());
 				ps.setBoolean(5, conf);
 
 				ps.executeUpdate();
+				if (conf == false) {
+					ObservableList equiposEste = listarEquiposEste();
+					tablaOeste.setItems(equiposEste);
+
+				} else {
+
+					ObservableList equiposOeste = listarEquiposOeste();
+					tablaOeste.setItems(equiposOeste);
+				}
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
-			closeConnection();
+			// closeConnection();
 		}
 
 	}
@@ -122,6 +133,41 @@ public class SampleController extends ObjetoDao {
 
 	@FXML
 	private void borrarEquipo() {
+
+		int indiceSeleccionado = tablaOeste.getSelectionModel().getSelectedIndex();
+		System.out.println(indiceSeleccionado);
+		if (indiceSeleccionado <= -1) {
+			Alert alerta = new Alert(AlertType.ERROR);
+			alerta.setTitle("Seleccion errónea");
+			alerta.setHeaderText("No has seleccionado un juego");
+			alerta.setContentText("Selecciona un juego a borrar");
+			alerta.showAndWait();
+		} else {
+
+			connection = openConnection();
+
+			try {
+
+				String query = "delete from equipos where eq_id = ?";
+				PreparedStatement ps = connection.prepareStatement(query);
+				Equipo equipo = (Equipo) tablaEste.getSelectionModel().getSelectedItem();
+				ps.setInt(1, equipo.getid());
+				ps.executeUpdate();
+				tablaEste.getSelectionModel().clearSelection();
+
+				ObservableList equipos = listarEquiposOeste();
+				tablaEste.setItems(equipos);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			// closeConnection();
+
+			
+			
+		}
+
 	}
 
 	@FXML
@@ -141,7 +187,8 @@ public class SampleController extends ObjetoDao {
 
 			while (rs.next()) {
 				Equipo actual = new Equipo(rs.getString("nombre"), rs.getString("ciudadLocal"),
-						rs.getString("generalManager"), rs.getString("propietario"), rs.getBoolean("conferencia"));
+						rs.getString("generalManager"), rs.getString("propietario"), rs.getBoolean("conferencia"),
+						rs.getInt("eq_id"));
 				todos.add(actual);
 
 				confO.add(actual);
@@ -174,7 +221,8 @@ public class SampleController extends ObjetoDao {
 
 			while (rs.next()) {
 				Equipo actual = new Equipo(rs.getString("nombre"), rs.getString("ciudadLocal"),
-						rs.getString("generalManager"), rs.getString("propietario"), rs.getBoolean("conferencia"));
+						rs.getString("generalManager"), rs.getString("propietario"), rs.getBoolean("conferencia"),
+						rs.getInt("eq_id"));
 				todos.add(actual);
 
 				confE.add(actual);
@@ -189,7 +237,7 @@ public class SampleController extends ObjetoDao {
 		return confE;
 
 	}
-	
+
 	@FXML
 	private void initialize() {
 		cbCiudad.setItems(listaCiudades);
@@ -200,14 +248,16 @@ public class SampleController extends ObjetoDao {
 		columGMOeste.setCellValueFactory(new PropertyValueFactory<>("generalManager"));
 		columPropietarioOeste.setCellValueFactory(new PropertyValueFactory<>("propietario"));
 
-	//	tablaOeste.setItems(listarEquiposOeste());
+		ObservableList equiposOeste = listarEquiposOeste();
+		tablaOeste.setItems(equiposOeste);
 
 		columNombreEste.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 		columCiudadEste.setCellValueFactory(new PropertyValueFactory<>("ciudadLocal"));
 		columGMEste.setCellValueFactory(new PropertyValueFactory<>("generalManager"));
 		columPropietarioEste.setCellValueFactory(new PropertyValueFactory<>("propietario"));
 
-		//tablaOeste.setItems(listarEquiposEste());
+		ObservableList equiposEste = listarEquiposEste();
+		tablaEste.setItems(equiposEste);
 
 	}
 

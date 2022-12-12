@@ -39,12 +39,18 @@
     -fx-background-color: #3a3a3a;
 }
 .text-field {
-    -fx-background-color: #1d1d1d;
-    -fx-text-fill: white;
+    -fx-background-color: white;
+    -fx-text-fill: black;
 }
 .choice-box{
-	    -fx-background-color: #1d1d1d;
-    -fx-text-fill: white;
+      -fx-background-color: 
+        #000000,
+        linear-gradient(#7ebcea, #2f4b8f),
+        linear-gradient(#426ab7, #263e75),
+        linear-gradient(#395cab, #223768);
+    -fx-padding: 3 10 4 20;
+    -fx-text-fill: black;
+    -fx-font-size: 12px;
 }
 .button:pressed, .button:default:hover:pressed {
   -fx-background-color: white;
@@ -62,4 +68,18 @@
 #tablaEste{
 	-fx-base: #2D7EC2;
 }
+#borderPaneIzq{
+	-fx-background-color: #1d1d1d;
+}
+#borderPaneDch{
+	-fx-background-color: #1d1d1d;
+}
+#oestoso{
+	-fx-background-color: #1d1d1d;
+}
+#estoso{
+	-fx-background-color: #1d1d1d;
+}
+
+
 
