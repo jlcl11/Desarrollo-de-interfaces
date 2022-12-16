@@ -133,40 +133,34 @@ public class SampleController extends ObjetoDao {
 
 	@FXML
 	private void borrarEquipo() {
-
-		int indiceSeleccionado = tablaOeste.getSelectionModel().getSelectedIndex();
-		System.out.println(indiceSeleccionado);
-		if (indiceSeleccionado <= -1) {
-			Alert alerta = new Alert(AlertType.ERROR);
-			alerta.setTitle("Seleccion errónea");
-			alerta.setHeaderText("No has seleccionado un juego");
-			alerta.setContentText("Selecciona un juego a borrar");
-			alerta.showAndWait();
-		} else {
-
-			connection = openConnection();
-
-			try {
-
-				String query = "delete from equipos where eq_id = ?";
-				PreparedStatement ps = connection.prepareStatement(query);
-				Equipo equipo = (Equipo) tablaEste.getSelectionModel().getSelectedItem();
-				ps.setInt(1, equipo.getid());
-				ps.executeUpdate();
-				tablaEste.getSelectionModel().clearSelection();
-
-				ObservableList equipos = listarEquiposOeste();
-				tablaEste.setItems(equipos);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-			// closeConnection();
-
-			
-			
-		}
+		/*
+		 * int indiceSeleccionado = tablaOeste.getSelectionModel().getSelectedIndex();
+		 * System.out.println(indiceSeleccionado); if (indiceSeleccionado <= -1) { Alert
+		 * alerta = new Alert(AlertType.ERROR); alerta.setTitle("Seleccion errónea");
+		 * alerta.setHeaderText("No has seleccionado un juego");
+		 * alerta.setContentText("Selecciona un juego a borrar"); alerta.showAndWait();
+		 * } else {
+		 * 
+		 * connection = openConnection();
+		 * 
+		 * try {
+		 * 
+		 * String query = "delete from equipos where eq_id = ?"; PreparedStatement ps =
+		 * connection.prepareStatement(query); Equipo equipo = (Equipo)
+		 * tablaEste.getSelectionModel().getSelectedItem(); ps.setInt(1,
+		 * equipo.getid()); ps.executeUpdate();
+		 * tablaEste.getSelectionModel().clearSelection();
+		 * 
+		 * ObservableList equipos = listarEquiposOeste(); tablaEste.setItems(equipos); }
+		 * catch (SQLException e) { // TODO Auto-generated catch block
+		 * e.printStackTrace(); }
+		 * 
+		 * // closeConnection();
+		 * 
+		 * 
+		 * 
+		 * }
+		 */
 
 	}
 
@@ -206,7 +200,6 @@ public class SampleController extends ObjetoDao {
 
 	@FXML
 	private ObservableList<Equipo> listarEquiposEste() {
-
 		ObservableList<Equipo> confE = FXCollections.observableArrayList();
 
 		ArrayList<Equipo> todos = new ArrayList<>();
