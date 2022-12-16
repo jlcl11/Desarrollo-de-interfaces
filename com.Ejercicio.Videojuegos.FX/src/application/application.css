@@ -1,0 +1,57 @@
+.label {
+    -fx-text-fill: black;
+    -fx-opacity: 1.0;
+    -fx-alignment: center;
+    -fx-font-size: 10.0pt;
+    -fx-text-fill: white;
+   
+}
+.menu-bar {
+     -fx-background-color: derive(#1d1d1d,20.0%);
+}
+
+.context-menu {
+    -fx-background-color: derive(#1d1d1d,50.0%);
+}
+
+.menu-bar .label {
+    -fx-font-size: 14.0pt;
+    -fx-text-fill: white;
+    -fx-opacity: 0.9;
+}
+.menu-bar .label:hover {
+       -fx-font-size: 17.0pt;
+}
+#panel{
+	-fx-background-color: #81240F
+}
+.button {
+    -fx-padding: 5 22 5 22;   
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: #1d1d1d;
+    -fx-font-size: 11pt;
+    -fx-text-fill: #d8d8d8;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.button:hover {
+    -fx-background-color: #3a3a3a;
+}
+
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: white;
+}
+#btnAnadir:pressed{
+	-fx-text-fill: #11A405;
+}
+#btnBorrar:pressed{
+	-fx-text-fill: #FF0303;
+}
+.table-view{
+	-fx-base: #81240F;
+}
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}

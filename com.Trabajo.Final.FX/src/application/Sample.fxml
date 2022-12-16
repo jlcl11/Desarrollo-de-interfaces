@@ -23,11 +23,33 @@
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
+          <Menu mnemonicParsing="false" text="Clasificación">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="General" />
+                  <Menu mnemonicParsing="false" text="Por conferencia">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Conferencia Este" />
+                        <MenuItem mnemonicParsing="false" text="Conferencia Oeste" />
+                    </items>
+                  </Menu>
+               </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Jugadores">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Carrera por el MVP" />
+                  <Menu mnemonicParsing="false" text="Líderes por estadístocas">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Puntos" />
+                        <MenuItem mnemonicParsing="false" text="Asistencias" />
+                        <MenuItem mnemonicParsing="false" text="Rebotes" />
+                        <MenuItem mnemonicParsing="false" text="Robos" />
+                        <MenuItem mnemonicParsing="false" text="Tapones" />
+                    </items>
+                  </Menu>
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Calendario" />
+            <Menu mnemonicParsing="false" text="Resultados" />
         </menus>
       </MenuBar>
    </top>

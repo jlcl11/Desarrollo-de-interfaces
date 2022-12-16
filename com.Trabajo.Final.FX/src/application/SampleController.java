@@ -134,34 +134,87 @@ public class SampleController extends ObjetoDao {
 
 	@FXML
 	private void borrarEquipo() {
-		/*
-		 * int indiceSeleccionado = tablaOeste.getSelectionModel().getSelectedIndex();
-		 * System.out.println(indiceSeleccionado); if (indiceSeleccionado <= -1) { Alert
-		 * alerta = new Alert(AlertType.ERROR); alerta.setTitle("Seleccion errónea");
-		 * alerta.setHeaderText("No has seleccionado un juego");
-		 * alerta.setContentText("Selecciona un juego a borrar"); alerta.showAndWait();
-		 * } else {
-		 * 
-		 * connection = openConnection();
-		 * 
-		 * try {
-		 * 
-		 * String query = "delete from equipos where eq_id = ?"; PreparedStatement ps =
-		 * connection.prepareStatement(query); Equipo equipo = (Equipo)
-		 * tablaEste.getSelectionModel().getSelectedItem(); ps.setInt(1,
-		 * equipo.getid()); ps.executeUpdate();
-		 * tablaEste.getSelectionModel().clearSelection();
-		 * 
-		 * ObservableList equipos = listarEquiposOeste(); tablaEste.setItems(equipos); }
-		 * catch (SQLException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 * 
-		 * // closeConnection();
-		 * 
-		 * 
-		 * 
-		 * }
-		 */
+
+		int indiceSeleccionadoOeste = tablaOeste.getSelectionModel().getSelectedIndex();
+		// System.out.println("Índice a borrar oeste: " + indiceSeleccionadoOeste);
+
+		int indiceSeleccionadoEste = tablaEste.getSelectionModel().getSelectedIndex();
+		// System.out.println("Indice a borrar este: " + indiceSeleccionadoEste);
+
+		if (indiceSeleccionadoOeste > -1 && indiceSeleccionadoEste < 0) {
+			connection = openConnection();
+
+			try {
+				String query = "delete from equipos where eq_id=?;";
+				PreparedStatement ps = connection.prepareStatement(query);
+				Equipo equipo = (Equipo) tablaOeste.getSelectionModel().getSelectedItem();
+				ps.setInt(1, equipo.getid());
+				System.out.println(equipo);
+				ps.executeUpdate();
+				ObservableList equiposOeste = listarEquiposOeste();
+				tablaOeste.setItems(equiposOeste);
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if (indiceSeleccionadoOeste > -1 && indiceSeleccionadoEste > 0) {
+
+			connection = openConnection();
+
+			try {
+				String query = "delete from equipos where eq_id=?;";
+				PreparedStatement ps = connection.prepareStatement(query);
+				Equipo equipo = (Equipo) tablaOeste.getSelectionModel().getSelectedItem();
+				ps.setInt(1, equipo.getid());
+				System.out.println(equipo);
+				ps.executeUpdate();
+				ObservableList equiposOeste = listarEquiposOeste();
+				tablaOeste.setItems(equiposOeste);
+
+				connection = openConnection();
+				PreparedStatement ps2 = connection.prepareStatement(query);
+				Equipo equipo2 = (Equipo) tablaEste.getSelectionModel().getSelectedItem();
+				ps2.setInt(1, equipo2.getid());
+				System.out.println(equipo2);
+				ps2.executeUpdate();
+				ObservableList equiposEste = listarEquiposEste();
+				tablaEste.setItems(equiposEste);
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		if (indiceSeleccionadoEste > -1 && indiceSeleccionadoOeste < 0) {
+			connection = openConnection();
+			try {
+				String query = "delete from equipos where eq_id=?;";
+				PreparedStatement ps2 = connection.prepareStatement(query);
+				Equipo equipo2 = (Equipo) tablaEste.getSelectionModel().getSelectedItem();
+				ps2.setInt(1, equipo2.getid());
+				System.out.println(equipo2);
+				ps2.executeUpdate();
+				ObservableList equiposEste = listarEquiposEste();
+				tablaEste.setItems(equiposEste);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		if (indiceSeleccionadoEste < 0 && indiceSeleccionadoOeste < 0) {
+			Alert alerta = new Alert(AlertType.ERROR);
+			alerta.setTitle("Error al borrar");
+			alerta.setHeaderText("No se ha seleccionado ningún equipo a borrar");
+			alerta.setContentText("Por favor, selecciona un equipo para borrarlo");
+			alerta.showAndWait();
+		}
+		System.out.println("Índice a borrar oeste: " + indiceSeleccionadoOeste);
+
+		System.out.println("Indice a borrar este: " + indiceSeleccionadoEste);
 
 	}
 

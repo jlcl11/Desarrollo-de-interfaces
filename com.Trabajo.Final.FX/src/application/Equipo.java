@@ -76,4 +76,17 @@ public class Equipo {
 		this.conferencia = new SimpleBooleanProperty(conferencia);
 	}
 
+	@Override
+	public String toString() {
+
+		if (this.getConferencia() == true) {
+			return "El equipo " + ciudadLocal + " " + nombre + " con id=" + id + " de la conferencia este ,pertenece a "
+					+ propietario + " y tiene como General Manager a " + generalManager + "\n";
+		} else {
+			return "El equipo " + ciudadLocal + " " + nombre + " con id=" + id
+					+ " de la conferencia oeste ,pertenece a " + propietario + " y tiene como General Manager a "
+					+ generalManager + "\n";
+		}
+
+	}
 }
