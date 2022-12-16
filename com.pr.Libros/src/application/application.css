@@ -1,0 +1,136 @@
+
+.choice-box .context-menu { -fx-background-color: black; }
+
+.choice-box .menu-item:focused { -fx-background-color: orange; }
+
+.choice-box .menu-item > .label { -fx-text-fill: white; }
+
+.choice-box .menu-item:focused > .label { -fx-text-fill: black; }
+
+.choice-box {
+  -fx-background-color: black;
+  -fx-mark-color: orange; 
+}
+.choice-box > .label { -fx-text-fill: white; }
+
+.menu-bar {
+     -fx-background-color: black;
+}
+
+.menu-bar .label {
+    -fx-font-size: 14.0pt;
+    -fx-text-fill: white;
+    -fx-opacity: 0.9;
+}
+.menu-bar .label:hover {
+       -fx-font-size: 17.0pt;
+       -fx-text-fill: orange;
+       
+}
+
+#borderPaneIzq{
+	-fx-background-color: #1d1d1d;
+}
+#borderPaneDch{
+	-fx-background-color: #1d1d1d;
+}
+.label {
+    -fx-text-fill: black;
+    -fx-opacity: 1.0;
+    -fx-alignment: center;
+       -fx-text-fill: orange;
+       
+}
+.text-field {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+.text-field:focused {
+    -fx-background-color: black;
+}
+
+.button {
+    -fx-padding: 5.0 22.0 5.0 22.0;   
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2.0;
+    -fx-background-radius: 0.0;
+    -fx-background-color: #1d1d1d;
+    -fx-font-size: 11.0pt;
+    -fx-text-fill: orange;
+    -fx-background-insets: 0.0 0.0 0.0 0.0, 0.0, 1.0, 2.0;
+}
+
+.button:hover {
+    -fx-background-color: #3a3a3a;
+}
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: white;
+}
+#btnAnadir:pressed{
+	-fx-text-fill: green;
+}
+#btnBorrar:pressed{
+	-fx-text-fill: #FF0303;
+}
+.table-cell {     
+    -fx-padding: 0.5em 0.5em 0.1em 0.3em;
+    -fx-border-color: -fx-box-border -fx-box-border transparent transparent;   
+    -fx-border-insets: 0;
+}
+
+
+.table-cell:hover {
+    -fx-background-color: #9900ff;
+}
+
+.table-row-cell:empty, .table-cell:empty:hover {
+    -fx-background-color: whitesmoke;
+}
+
+.table-view:row-selection .table-row-cell:filled:hover { 
+    -fx-background-color: rgba(28, 183, 236, 0.25);
+}
+
+.table-view:row-selection .table-row-cell:filled:selected:hover { 
+    -fx-background-color: rgba(228, 183, 236, 0.90);
+}
+
+.table-view:row-selection .table-row-cell:filled:selected { 
+    -fx-background-color: rgba(28, 183, 236, 0.65);
+}
+
+.table-view, .table-view:focused {
+  -fx-background-color: transparent,-fx-box-border,-fx-control-inner-background;
+  -fx-background-insets: -1.4, 0, 1;
+  -fx-background-radius: 1.4, 0, 0;
+}
+ 
+.table-view .column-header .label{
+	-fx-background-color: black;
+    -fx-text-fill: #1d1d1d;
+    -fx-alignment: CENTER;
+    -fx-text-fill: orange;
+}
+
+.table-view .column-header:hover {
+    -fx-background-color: whitesmoke;
+}
+
+.table-view .column-header, .table-view .filler {
+    
+    -fx-border-color: -fx-box-border;
+    -fx-border-width: 0 1 3 0;
+    -fx-border-insets: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .show-hide-columns-button {
+    -fx-background-color: white;
+    -fx-border-color: -fx-box-border;
+    -fx-border-insets: 0;
+}
+
