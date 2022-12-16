@@ -10,13 +10,27 @@ public class PojoVideojuego {
 	private SimpleFloatProperty precio;
 	private SimpleStringProperty consola;
 	private SimpleIntegerProperty pegi;
+	private int id;
 
 	public PojoVideojuego(String nombre, float precio, String consola, Integer pegi) {
 		super();
-		this.nombre =new SimpleStringProperty(nombre); 
+		this.nombre = new SimpleStringProperty(nombre);
 		this.precio = new SimpleFloatProperty(precio);
 		this.consola = new SimpleStringProperty(consola);
 		this.pegi = new SimpleIntegerProperty(pegi);
+	}
+
+	public PojoVideojuego(int id, String nombre, float precio, String consola, Integer pegi) {
+		super();
+		this.id = id;
+		this.nombre = new SimpleStringProperty(nombre);
+		this.precio = new SimpleFloatProperty(precio);
+		this.consola = new SimpleStringProperty(consola);
+		this.pegi = new SimpleIntegerProperty(pegi);
+	}
+
+	public int getId() {
+		return id;
 	}
 
 	public String getNombre() {

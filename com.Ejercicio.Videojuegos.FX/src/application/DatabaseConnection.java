@@ -9,7 +9,7 @@ public class DatabaseConnection {
 	Connection connection;
 	
 	public Connection getConnection () {
-		String dbName = "bd_zoologico";
+		String dbName = "bd_jogos";
 		String userName = "root";
 		String password = "Administrador_0";
 		
