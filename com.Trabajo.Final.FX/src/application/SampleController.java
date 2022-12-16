@@ -92,11 +92,12 @@ public class SampleController extends ObjetoDao {
 
 			if (cbConf.getValue().toString() == "Oeste") {
 				System.out.println("Entra en oeste");
-				conf = false;
-			} else {
 				conf = true;
+			} else {
+				conf = false;
 				System.out.println("Entra en este");
 			}
+			System.out.println(conf);
 
 			try {
 				PreparedStatement ps = connection.prepareStatement(query);
@@ -110,7 +111,7 @@ public class SampleController extends ObjetoDao {
 				ps.executeUpdate();
 				if (conf == false) {
 					ObservableList equiposEste = listarEquiposEste();
-					tablaOeste.setItems(equiposEste);
+					tablaEste.setItems(equiposEste);
 
 				} else {
 
